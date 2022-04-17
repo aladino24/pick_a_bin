@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pick_a_bin/jadwal.dart';
 import 'package:pick_a_bin/profile.dart';
 
 void main() {
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
  
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: const ProfilePage(),
+      home: const Jadwal(),
     );
   }
 }
