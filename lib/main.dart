@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pick_a_bin/jadwal.dart';
+import 'package:pick_a_bin/list_contact.dart';
 import 'package:pick_a_bin/profile.dart';
 
 void main() {
@@ -16,11 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
- 
         primarySwatch: Colors.green,
       ),
-      home: const Jadwal(),
+      home: ListContactPage(),
     );
   }
 }
-

@@ -119,7 +119,7 @@ class ListItem extends StatelessWidget {
               title,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text("Surabaya, Jawa Timur, Indonesia"),
+            subtitle: Text("Sidoarjo, Jawa Timur, Indonesia"),
             leading: CircleAvatar(
               backgroundImage: NetworkImage(urlImage),
             ),
