@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pick_a_bin/list_done.dart';
+import 'package:pick_a_bin/screen/list_done.dart';
 
 
 class Jadwal extends StatelessWidget {

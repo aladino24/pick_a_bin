@@ -1,4 +1,6 @@
 import 'package:faker/faker.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 
 class ListContactPage extends StatelessWidget {
@@ -7,6 +9,7 @@ class ListContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ref = FirebaseDatabase.instance.ref().child('warga');
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -32,43 +35,23 @@ class ListContactPage extends StatelessWidget {
               elevation: 0, primary: Colors.transparent),
         ),
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return ListItem(
-            title: faker.person.name(),
-            urlImage: "https://picsum.photos/id/$index/200/300",
-          );
-        },
-        itemCount: 15,
-      ),
-    );
-  }
-}
-
-class ListItem extends StatelessWidget {
-  final String title;
-  final String urlImage;
-
-  ListItem({required this.title, required this.urlImage});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 0),
-      child: Column(
+      body: FirebaseAnimatedList(
+        query: ref,
+        itemBuilder: (BuildContext context, DataSnapshot snapshot,
+            Animation<double> animation, int index) {
+          return Column(
         children: <Widget>[
           ListTile(
             title: Text(
-              title,
+              snapshot.child('nama').value.toString(),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text("+62 "),
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(urlImage),
-            ),
+            subtitle: Text(snapshot.child('alamat').value.toString()),
           ),
         ],
-      ),
+      );
+    })
     );
   }
 }
+
